@@ -1,0 +1,307 @@
+/* =========================================
+   SOLAR SYSTEM EXPLORER
+   Astronomy / Observatory Theme
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --space-black: #030712;
+    --space-blue: #071426;
+    --panel: rgba(10, 24, 43, 0.88);
+
+    --star-white: #f8fbff;
+    --star-blue: #b9d9ff;
+    --muted: #8ea4bf;
+
+    --stellar-blue: #4da3ff;
+    --stellar-cyan: #67e8f9;
+    --stellar-purple: #8b7cff;
+
+    --solar-gold: #f6c453;
+    --solar-orange: #f59e0b;
+
+    --border: rgba(148, 197, 255, 0.22);
+
+    --shadow:
+        0 10px 30px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(77, 163, 255, 0.08);
+}
+
+
+/* =========================================
+   PAGE
+   ========================================= */
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    color: var(--star-white);
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    text-align: center;
+
+    background:
+        /* distant stars */
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.9) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 75% 15%, rgba(255,255,255,.8) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 45% 65%, rgba(255,255,255,.7) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 90% 75%, rgba(255,255,255,.8) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 30% 90%, rgba(255,255,255,.6) 0 1px, transparent 1.5px),
+
+        /* nebula glow */
+        radial-gradient(
+            ellipse at 20% 30%,
+            rgba(68, 118, 255, 0.16),
+            transparent 45%
+        ),
+
+        radial-gradient(
+            ellipse at 80% 70%,
+            rgba(139, 92, 246, 0.13),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            135deg,
+            #020617 0%,
+            #071426 45%,
+            #030712 100%
+        );
+
+    background-attachment: fixed;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   HEADER / NAVIGATION
+   ========================================= */
+
+.site-container {
+    width: 100%;
+    max-width: 1140px;
+
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 22px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    position: relative;
+}
+
+
+/* subtle observatory glow */
+
+.site-header::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -1px;
+    left: 50%;
+
+    width: 180px;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background: var(--stellar-cyan);
+
+    box-shadow:
+        0 0 10px var(--stellar-cyan),
+        0 0 25px var(--stellar-blue);
+}
+
+
+.site-title {
+    color: var(--star-white);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.45rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 10px rgba(103, 232, 249, 0.35);
+}
+
+
+.site-main {
+    width: 100%;
+    margin-top: 60px;
+    padding: 60px 20px 0;
+    border-top: 1px solid var(--border);
+    background: linear-gradient(180deg,rgba(3, 7, 18, 0.65),rgba(2, 6, 23, 0.98));
+    box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.main-section {
+    padding: 25px;
+    background: linear-gradient( 145deg, rgba(11, 29, 52, 0.88), rgba(5, 15, 28, 0.92));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+.main-section h2 {
+    margin: 0 0 10px;
+    color: var(--stellar-cyan);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.35rem;
+    text-shadow: 0 0 10px rgba(103, 232, 249, 0.3);
+}
+
+.main-section > p {
+    margin: 0 0 20px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    background:rgba(3, 12, 25, 0.9);
+    border: 1px solid rgba(148, 197, 255, 0.22);
+    border-radius: 7px;
+    outline: none;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.form-group input,
+.form-group textarea{
+    color: #657b96;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    box-shadow:
+        0 0 0 2px
+        rgba(103, 232, 249, 0.08),
+        0 0 15px
+        rgba(77, 163, 255, 0.15);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.main-button {
+    align-self: flex-start;
+    padding: 9px 20px;
+    color: #071426;
+    background:
+        linear-gradient(
+            135deg,
+            #ffbc0d,
+            var(--solar-gold)
+        );
+    border: 1px solid var(--solar-gold);
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.main-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(246, 196, 83, 0.35);
+}
+
+.main-email {
+    display: flex;
+    flex-direction: column;
+}
+
+.email-link {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 12px 16px;
+    color: var(--stellar-cyan);
+    text-decoration: none;
+    background: rgba(77, 163, 255, 0.08);
+    border: 1px solid rgba(103, 232, 249, 0.25);
+    border-radius: 8px;
+}
+
+.email-link:hover {
+    color: white;
+    background: rgba(77, 163, 255, 0.15);
+    box-shadow: 0 0 15px rgba(77, 163, 255, 0.2);
+}
+
+.main-note {
+    color: #60758f !important;
+    font-size: 0.8rem !important;
+    line-height: 1.6;
+}
+
+.main-bottom {
+    max-width: 1140px;
+    margin: 45px auto 0;
+    padding: 20px 0;
+    border-top: 1px solid rgba(148, 197, 255, 0.1);
+    text-align: center;
+}
+
+.main-bottom p,
+.form-group p {
+    margin: 0;
+    color: #60758f;
+    font-size: 14px;
+}
+
